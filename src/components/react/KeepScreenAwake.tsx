@@ -592,7 +592,7 @@ const KeepScreenAwake: React.FC = () => {
               {Object.entries(t.languages).map(([langCode, langName]) => (
                 <a
                   key={langCode}
-                  href={langCode === "en" ? "/" : `/${langCode}`}
+                  href={`/${langCode}`}
                   className="px-6 py-4 rounded-lg border-2 transition-all duration-300 cursor-pointer hover:scale-105"
                   style={{
                     backgroundColor:
