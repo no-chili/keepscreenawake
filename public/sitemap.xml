@@ -1,9 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- English (Default) -->
   <url>
     <loc>https://keepscreenawake.org/</loc>
-    <lastmod>2024-01-01</lastmod>
+    <lastmod>2025-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keepscreenawake.org/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://keepscreenawake.org/zh"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://keepscreenawake.org/ja"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://keepscreenawake.org/ko"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://keepscreenawake.org/es"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keepscreenawake.org/fr"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keepscreenawake.org/de"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://keepscreenawake.org/ru"/>
+  </url>
+  
+  <!-- Chinese -->
+  <url>
+    <loc>https://keepscreenawake.org/zh</loc>
+    <lastmod>2025-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keepscreenawake.org/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://keepscreenawake.org/zh"/>
+  </url>
+  
+  <!-- Japanese -->
+  <url>
+    <loc>https://keepscreenawake.org/ja</loc>
+    <lastmod>2025-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keepscreenawake.org/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://keepscreenawake.org/ja"/>
+  </url>
+  
+  <!-- Korean -->
+  <url>
+    <loc>https://keepscreenawake.org/ko</loc>
+    <lastmod>2025-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keepscreenawake.org/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://keepscreenawake.org/ko"/>
+  </url>
+  
+  <!-- Spanish -->
+  <url>
+    <loc>https://keepscreenawake.org/es</loc>
+    <lastmod>2025-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keepscreenawake.org/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://keepscreenawake.org/es"/>
+  </url>
+  
+  <!-- French -->
+  <url>
+    <loc>https://keepscreenawake.org/fr</loc>
+    <lastmod>2025-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keepscreenawake.org/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keepscreenawake.org/fr"/>
+  </url>
+  
+  <!-- German -->
+  <url>
+    <loc>https://keepscreenawake.org/de</loc>
+    <lastmod>2025-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keepscreenawake.org/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keepscreenawake.org/de"/>
+  </url>
+  
+  <!-- Russian -->
+  <url>
+    <loc>https://keepscreenawake.org/ru</loc>
+    <lastmod>2025-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keepscreenawake.org/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://keepscreenawake.org/ru"/>
   </url>
 </urlset>
