@@ -246,7 +246,7 @@ const KeepScreenAwake: React.FC = () => {
   return (
     <>
       <div
-        className="h-screen flex flex-col items-center justify-center p-8 relative"
+        className="h-screen flex flex-col items-center  justify-center p-8 relative"
         style={{ backgroundColor: colorTheme.background }}
       >
         {/* Main Content */}
@@ -285,13 +285,13 @@ const KeepScreenAwake: React.FC = () => {
             {/* Timer Display */}
             <div className="text-center">
               <div
-                className="text-lg mb-2"
+                className="text-lg mb-2  transition-all duration-500"
                 style={{ color: isActive ? colorTheme.primary : "white" }}
               >
                 {t.timer.label}
               </div>
               <div
-                className="text-3xl font-mono font-bold px-6 py-3 rounded-lg border min-w-[120px]"
+                className="text-3xl font-mono font-bold px-6 py-3  transition-all duration-500 rounded-lg border min-w-[120px]"
                 style={{
                   color: isActive ? colorTheme.primary : "white",
                   backgroundColor: "rgba(0, 0, 0, 0.2)",
@@ -305,7 +305,7 @@ const KeepScreenAwake: React.FC = () => {
 
           {/* Status Text */}
           <p
-            className="text-lg md:text-xl max-w-md text-center"
+            className="text-lg md:text-xl max-w-md text-center  transition-all duration-500"
             style={{ color: isActive ? colorTheme.primary : "white" }}
           >
             {isActive ? t.status.active : t.status.inactive}
