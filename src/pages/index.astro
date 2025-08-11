@@ -1,0 +1,12 @@
+---
+import KeepScreenAwake from "../components/react/KeepScreenAwake";
+import Layout from "../layouts/Layout.astro";
+
+const title = "Keep Screen Awake - Free Online Tool to Prevent Computer Sleep";
+const description =
+  "Keep your computer screen awake with this free online tool. Prevent your computer from sleeping during presentations, downloads, or when you need to keep working. No downloads required, works on all modern browsers.";
+---
+
+<Layout title={title} description={description}>
+  <KeepScreenAwake client:load />
+</Layout>
