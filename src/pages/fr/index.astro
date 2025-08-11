@@ -1,0 +1,13 @@
+---
+import KeepScreenAwake from "../../components/react/KeepScreenAwake";
+import Layout from "../../layouts/Layout.astro";
+
+const title =
+  "Garder l'Écran Réveillé - Outil gratuit en ligne pour empêcher votre ordinateur de s'endormir";
+const description =
+  "Gardez votre écran d'ordinateur réveillé avec cet outil gratuit en ligne. Empêchez votre ordinateur de s'endormir pendant les présentations, les téléchargements ou lorsque vous devez continuer à travailler. Aucun téléchargement requis, fonctionne sur tous les navigateurs modernes.";
+---
+
+<Layout title={title} description={description} lang="fr">
+  <KeepScreenAwake client:load />
+</Layout>

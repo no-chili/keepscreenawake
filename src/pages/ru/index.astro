@@ -1,0 +1,13 @@
+---
+import KeepScreenAwake from "../../components/react/KeepScreenAwake";
+import Layout from "../../layouts/Layout.astro";
+
+const title =
+  "Держать Экран Активным - Бесплатный онлайн-инструмент для предотвращения перехода компьютера в спящий режим";
+const description =
+  "Держите экран вашего компьютера активным с помощью этого бесплатного онлайн-инструмента. Предотвратите переход вашего компьютера в спящий режим во время презентаций, загрузок или когда вам нужно продолжать работать. Загрузки не требуются, работает во всех современных браузерах.";
+---
+
+<Layout title={title} description={description} lang="ru">
+  <KeepScreenAwake client:load />
+</Layout>

@@ -1,4 +1,9 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import {
+  getLanguageFromPath,
+  getTranslation,
+  type Language,
+} from "../../lib/i18n";
 
 // 颜色主题变量
 interface ColorTheme {
@@ -13,6 +18,7 @@ const KeepScreenAwake: React.FC = () => {
   const [isActive, setIsActive] = useState(false);
   const [startTime, setStartTime] = useState<number | null>(null);
   const [elapsedTime, setElapsedTime] = useState<string>("00:00");
+  const [currentLanguage, setCurrentLanguage] = useState<Language>("en");
 
   const animationFrameRef = useRef<number | undefined>(undefined);
 
@@ -66,6 +72,16 @@ const KeepScreenAwake: React.FC = () => {
   ];
 
   const [colorTheme, setColorTheme] = useState<ColorTheme>(defaultTheme);
+
+  // 获取当前语言的翻译
+  const t = getTranslation(currentLanguage);
+
+  // 检测当前语言
+  useEffect(() => {
+    const pathname = window.location.pathname;
+    const lang = getLanguageFromPath(pathname);
+    setCurrentLanguage(lang);
+  }, []);
 
   // 从localStorage加载颜色主题
   useEffect(() => {
@@ -239,10 +255,10 @@ const KeepScreenAwake: React.FC = () => {
           <h1
             className="text-6xl md:text-8xl font-bold transition-colors duration-300 text-center"
             style={{
-              color: isActive ? colorTheme.primary : colorTheme.primary,
+              color: isActive ? colorTheme.primary : "white",
             }}
           >
-            Keep Screen Awake
+            {t.title}
           </h1>
 
           {/* Toggle Switch */}
@@ -270,16 +286,16 @@ const KeepScreenAwake: React.FC = () => {
             <div className="text-center">
               <div
                 className="text-lg mb-2"
-                style={{ color: colorTheme.primary }}
+                style={{ color: isActive ? colorTheme.primary : "white" }}
               >
-                Elapsed Time
+                {t.timer.label}
               </div>
               <div
                 className="text-3xl font-mono font-bold px-6 py-3 rounded-lg border min-w-[120px]"
                 style={{
-                  color: colorTheme.primary,
+                  color: isActive ? colorTheme.primary : "white",
                   backgroundColor: "rgba(0, 0, 0, 0.2)",
-                  borderColor: `${colorTheme.primary}4D`,
+                  borderColor: isActive ? colorTheme.primary : "white",
                 }}
               >
                 {timerDisplay}
@@ -290,11 +306,9 @@ const KeepScreenAwake: React.FC = () => {
           {/* Status Text */}
           <p
             className="text-lg md:text-xl max-w-md text-center"
-            style={{ color: colorTheme.primary }}
+            style={{ color: isActive ? colorTheme.primary : "white" }}
           >
-            {isActive
-              ? "Your screen will stay awake. Keep this tab open and visible."
-              : "Click the toggle to prevent your computer from sleeping."}
+            {isActive ? t.status.active : t.status.inactive}
           </p>
 
           {/* Instructions */}
@@ -302,9 +316,9 @@ const KeepScreenAwake: React.FC = () => {
             className="text-sm md:text-base max-w-lg space-y-2 text-center"
             style={{ color: colorTheme.secondary }}
           >
-            <p>• Keep this tab open and visible</p>
-            <p>• Don't minimize the window</p>
-            <p>• Works on all modern browsers</p>
+            <p>• {t.instructions.keepTabOpen}</p>
+            <p>• {t.instructions.dontMinimize}</p>
+            <p>• {t.instructions.worksOnBrowsers}</p>
           </div>
         </div>
 
@@ -330,7 +344,7 @@ const KeepScreenAwake: React.FC = () => {
                 color: isActive ? colorTheme.primary : colorTheme.primary,
               }}
             >
-              Customize Colors
+              {t.settings.customColors}
             </h2>
 
             <div className="grid md:grid-cols-2 gap-8 h-64">
@@ -346,7 +360,7 @@ const KeepScreenAwake: React.FC = () => {
                   className="text-2xl font-semibold mb-4"
                   style={{ color: colorTheme.primary }}
                 >
-                  Background Color
+                  {t.settings.backgroundColor}
                 </h3>
                 <div className="flex-1 relative">
                   <input
@@ -380,7 +394,7 @@ const KeepScreenAwake: React.FC = () => {
                   className="text-2xl font-semibold mb-4"
                   style={{ color: colorTheme.primary }}
                 >
-                  Primary Color
+                  {t.settings.primaryColor}
                 </h3>
                 <div className="flex-1 relative">
                   <input
@@ -409,8 +423,7 @@ const KeepScreenAwake: React.FC = () => {
                 className="text-sm max-w-2xl mx-auto"
                 style={{ color: colorTheme.secondary }}
               >
-                Click on the color squares to customize your experience. Changes
-                are automatically saved and applied throughout the app.
+                {t.settings.colorCustomization}
               </p>
 
               {/* Recommended Color Themes */}
@@ -419,7 +432,7 @@ const KeepScreenAwake: React.FC = () => {
                   className="text-lg font-semibold"
                   style={{ color: colorTheme.primary }}
                 >
-                  Recommended Themes
+                  {t.settings.recommendedThemes}
                 </h4>
                 <div className="flex justify-center items-center gap-3 flex-wrap">
                   {recommendedThemes.map((theme, index) => (
@@ -447,7 +460,9 @@ const KeepScreenAwake: React.FC = () => {
                   color: colorTheme.primary,
                 }}
               >
-                <span className="text-lg font-semibold">Reset to Default</span>
+                <span className="text-lg font-semibold">
+                  {t.settings.reset}
+                </span>
               </button>
             </div>
           </div>
@@ -467,7 +482,7 @@ const KeepScreenAwake: React.FC = () => {
                 color: isActive ? colorTheme.primary : colorTheme.primary,
               }}
             >
-              Frequently Asked Questions
+              {t.faq.title}
             </h2>
 
             <div className="space-y-6 text-left">
@@ -482,16 +497,13 @@ const KeepScreenAwake: React.FC = () => {
                   className="text-xl font-semibold mb-3"
                   style={{ color: colorTheme.primary }}
                 >
-                  How does Keep Screen Awake work?
+                  {t.faq.howItWorks.question}
                 </h3>
                 <p
                   className="leading-relaxed"
                   style={{ color: colorTheme.secondary }}
                 >
-                  Keep Screen Awake uses the Screen Wake Lock API to prevent
-                  your computer from going to sleep. Simply toggle the switch
-                  and keep this browser window open and visible to maintain
-                  screen wakefulness.
+                  {t.faq.howItWorks.answer}
                 </p>
               </div>
 
@@ -506,16 +518,13 @@ const KeepScreenAwake: React.FC = () => {
                   className="text-xl font-semibold mb-3"
                   style={{ color: colorTheme.primary }}
                 >
-                  Why isn't Keep Screen Awake working on my device?
+                  {t.faq.notWorking.question}
                 </h3>
                 <p
                   className="leading-relaxed"
                   style={{ color: colorTheme.secondary }}
                 >
-                  Ensure you're using a modern browser that supports the Wake
-                  Lock API. Keep the browser window active and don't minimize
-                  it. Some devices may have additional power management settings
-                  that need adjustment.
+                  {t.faq.notWorking.answer}
                 </p>
               </div>
 
@@ -530,16 +539,13 @@ const KeepScreenAwake: React.FC = () => {
                   className="text-xl font-semibold mb-3"
                   style={{ color: colorTheme.primary }}
                 >
-                  Is Keep Screen Awake safe to use?
+                  {t.faq.safety.question}
                 </h3>
                 <p
                   className="leading-relaxed"
                   style={{ color: colorTheme.secondary }}
                 >
-                  Yes, Keep Screen Awake is completely safe. The application
-                  only prevents sleep while the browser window is active. Once
-                  you close the window or toggle it off, your computer will
-                  return to normal power management settings.
+                  {t.faq.safety.answer}
                 </p>
               </div>
 
@@ -554,17 +560,55 @@ const KeepScreenAwake: React.FC = () => {
                   className="text-xl font-semibold mb-3"
                   style={{ color: colorTheme.primary }}
                 >
-                  Does it work on mobile devices?
+                  {t.faq.mobile.question}
                 </h3>
                 <p
                   className="leading-relaxed"
                   style={{ color: colorTheme.secondary }}
                 >
-                  The Wake Lock API is primarily designed for desktop browsers.
-                  Mobile devices have different power management systems and may
-                  not support this feature.
+                  {t.faq.mobile.answer}
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 多语言菜单 */}
+      <div
+        className="h-screen flex flex-col items-center justify-center p-8 relative"
+        style={{ backgroundColor: colorTheme.background }}
+      >
+        <div className="text-center space-y-8 flex-1 flex flex-col items-center justify-center">
+          <div className="w-full max-w-4xl">
+            <h2
+              className="text-4xl md:text-6xl font-bold mb-8"
+              style={{ color: colorTheme.primary }}
+            >
+              {t.languages[currentLanguage]}
+            </h2>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {Object.entries(t.languages).map(([langCode, langName]) => (
+                <a
+                  key={langCode}
+                  href={langCode === "en" ? "/" : `/${langCode}`}
+                  className="px-6 py-4 rounded-lg border-2 transition-all duration-300 cursor-pointer hover:scale-105"
+                  style={{
+                    backgroundColor:
+                      currentLanguage === langCode
+                        ? colorTheme.primary
+                        : "rgba(0, 0, 0, 0.2)",
+                    borderColor: colorTheme.primary,
+                    color:
+                      currentLanguage === langCode
+                        ? colorTheme.background
+                        : colorTheme.primary,
+                  }}
+                >
+                  <span className="text-lg font-semibold">{langName}</span>
+                </a>
+              ))}
             </div>
           </div>
         </div>

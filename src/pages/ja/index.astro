@@ -1,0 +1,13 @@
+---
+import KeepScreenAwake from "../../components/react/KeepScreenAwake";
+import Layout from "../../layouts/Layout.astro";
+
+const title =
+  "画面を起動状態に保つ - コンピューターをスリープ状態にしない無料オンラインツール";
+const description =
+  "この無料オンラインツールでコンピューターの画面を起動状態に保ちましょう。プレゼンテーション、ダウンロード、または作業を続ける必要がある時にコンピューターがスリープ状態になるのを防ぎます。ダウンロード不要、すべてのモダンブラウザで動作します。";
+---
+
+<Layout title={title} description={description} lang="ja">
+  <KeepScreenAwake client:load />
+</Layout>

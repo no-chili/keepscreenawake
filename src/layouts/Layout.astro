@@ -4,16 +4,18 @@ import "../styles/global.css";
 export interface Props {
   title?: string;
   description?: string;
+  lang?: string;
 }
 
 const {
   title = "Keep Screen Awake - Free Online Tool to Prevent Computer Sleep",
   description = `Keep your computer screen awake with this free online tool. Prevent your computer from sleeping during presentations, downloads, or when you need to keep working. No downloads required, works on all modern browsers.`,
+  lang = "en",
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,7 +33,7 @@ const {
     />
     <meta name="author" content="no-chili" />
     <meta name="robots" content="index, follow" />
-    <meta name="language" content="English" />
+    <meta name="language" content={lang === "en" ? "English" : lang} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -45,7 +47,10 @@ const {
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Keep Screen Awake" />
-    <meta property="og:locale" content="en_US" />
+    <meta
+      property="og:locale"
+      content={lang === "en" ? "en_US" : `${lang}_${lang.toUpperCase()}`}
+    />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />

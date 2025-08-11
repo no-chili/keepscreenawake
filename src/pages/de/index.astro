@@ -1,0 +1,13 @@
+---
+import KeepScreenAwake from "../../components/react/KeepScreenAwake";
+import Layout from "../../layouts/Layout.astro";
+
+const title =
+  "Bildschirm Wachhalten - Kostenloses Online-Tool, um zu verhindern, dass Ihr Computer in den Schlafmodus wechselt";
+const description =
+  "Halten Sie Ihren Computerbildschirm mit diesem kostenlosen Online-Tool wach. Verhindern Sie, dass Ihr Computer während Präsentationen, Downloads oder wenn Sie weiterarbeiten müssen, in den Schlafmodus wechselt. Keine Downloads erforderlich, funktioniert auf allen modernen Browsern.";
+---
+
+<Layout title={title} description={description} lang="de">
+  <KeepScreenAwake client:load />
+</Layout>

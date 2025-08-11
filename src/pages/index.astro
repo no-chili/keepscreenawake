@@ -7,6 +7,25 @@ const description =
   "Keep your computer screen awake with this free online tool. Prevent your computer from sleeping during presentations, downloads, or when you need to keep working. No downloads required, works on all modern browsers.";
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} lang="en">
   <KeepScreenAwake client:load />
 </Layout>
+
+<script>
+  // 检测用户语言并重定向到相应的语言页面
+  (function () {
+    const userLang = navigator.language;
+    const langCode = userLang.split("-")[0];
+
+    // 支持的语言列表
+    const supportedLangs = ["zh", "ja", "ko", "es", "fr", "de", "ru"];
+
+    // 如果用户语言在支持列表中且不在根路径，则重定向
+    if (supportedLangs.includes(langCode) && window.location.pathname === "/") {
+      // 延迟重定向，避免闪烁
+      setTimeout(() => {
+        window.location.href = `/${langCode}`;
+      }, 100);
+    }
+  })();
+</script>

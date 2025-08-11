@@ -1,0 +1,13 @@
+---
+import KeepScreenAwake from "../../components/react/KeepScreenAwake";
+import Layout from "../../layouts/Layout.astro";
+
+const title =
+  "Mantener Pantalla Despierta - Herramienta gratuita en línea para evitar que tu computadora se duerma";
+const description =
+  "Mantén tu pantalla de computadora despierta con esta herramienta gratuita en línea. Evita que tu computadora se duerma durante presentaciones, descargas o cuando necesites seguir trabajando. No se requieren descargas, funciona en todos los navegadores modernos.";
+---
+
+<Layout title={title} description={description} lang="es">
+  <KeepScreenAwake client:load />
+</Layout>

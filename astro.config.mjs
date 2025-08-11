@@ -14,7 +14,20 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap({
-      filter: (page) => page === "/",
+      filter: (page) => {
+        // 包含根路径和所有语言路径
+        const validPaths = [
+          "/",
+          "/zh",
+          "/ja",
+          "/ko",
+          "/es",
+          "/fr",
+          "/de",
+          "/ru",
+        ];
+        return validPaths.includes(page);
+      },
       changefreq: "monthly",
       priority: 1.0,
     }),
