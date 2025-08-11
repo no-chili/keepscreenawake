@@ -333,7 +333,7 @@ const KeepScreenAwake: React.FC = () => {
 
       {/* Custom Color Section */}
       <div
-        className="h-screen flex flex-col items-center justify-center p-8 relative"
+        className="h-screen overflow-y-scroll flex flex-col items-center justify-center p-8 relative"
         style={{ backgroundColor: colorTheme.background }}
       >
         <div className="text-center space-y-8 flex-1 flex flex-col items-center justify-center">
@@ -347,10 +347,10 @@ const KeepScreenAwake: React.FC = () => {
               {t.settings.customColors}
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-8 h-64">
+            <div className="grid md:grid-cols-2 gap-8 min-h-64">
               {/* Background Color Customization */}
               <div
-                className="border flex flex-col rounded-lg p-6"
+                className="border flex flex-col rounded-lg p-6 min-h-32"
                 style={{
                   backgroundColor: "rgba(0, 0, 0, 0.2)",
                   borderColor: colorTheme.border,
@@ -384,7 +384,7 @@ const KeepScreenAwake: React.FC = () => {
 
               {/* Primary Color Customization */}
               <div
-                className="border flex flex-col rounded-lg p-6"
+                className="border flex flex-col rounded-lg p-6 min-h-32"
                 style={{
                   backgroundColor: "rgba(0, 0, 0, 0.2)",
                   borderColor: colorTheme.border,
@@ -471,7 +471,7 @@ const KeepScreenAwake: React.FC = () => {
 
       {/* FAQ Section */}
       <div
-        className="h-screen flex flex-col items-center justify-center p-8 relative"
+        className="h-screen overflow-y-scroll flex flex-col items-center justify-center p-8 relative"
         style={{ backgroundColor: colorTheme.background }}
       >
         <div className="text-center space-y-8 flex-1 flex flex-col items-center justify-center">
