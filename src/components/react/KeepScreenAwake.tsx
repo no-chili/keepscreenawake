@@ -14,15 +14,18 @@ interface ColorTheme {
   accent: string; // 强调色
 }
 
-const KeepScreenAwake: React.FC = () => {
+interface KeepScreenAwakeProps {
+  lang?: Language;
+}
+
+const KeepScreenAwake: React.FC<KeepScreenAwakeProps> = ({ lang }) => {
   const [isActive, setIsActive] = useState(false);
   const [startTime, setStartTime] = useState<number | null>(null);
   const [elapsedTime, setElapsedTime] = useState<string>("00:00");
-  const [currentLanguage, setCurrentLanguage] = useState<Language>("en");
+  const [currentLanguage, setCurrentLanguage] = useState<Language>(lang || "en");
 
   const animationFrameRef = useRef<number | undefined>(undefined);
 
-  // 默认颜色主题
   // 默认颜色主题
   const defaultTheme: ColorTheme = {
     primary: "#FFEB3B",
@@ -76,12 +79,16 @@ const KeepScreenAwake: React.FC = () => {
   // 获取当前语言的翻译
   const t = getTranslation(currentLanguage);
 
-  // 检测当前语言
+  // 设置语言（优先使用传入的 prop）
   useEffect(() => {
-    const pathname = window.location.pathname;
-    const lang = getLanguageFromPath(pathname);
-    setCurrentLanguage(lang);
-  }, []);
+    if (lang) {
+      setCurrentLanguage(lang);
+    } else {
+      const pathname = window.location.pathname;
+      const detectedLang = getLanguageFromPath(pathname);
+      setCurrentLanguage(detectedLang);
+    }
+  }, [lang]);
 
   // 从localStorage加载颜色主题
   useEffect(() => {
