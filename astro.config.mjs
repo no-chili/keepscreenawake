@@ -15,18 +15,20 @@ export default defineConfig({
     react(),
     sitemap({
       filter: (page) => {
-        // 包含根路径和所有语言路径
+        // 包含根路径和所有语言路径，带/结尾
+        const url = new URL(page);
         const validPaths = [
           "/",
-          "/zh",
-          "/ja",
-          "/ko",
-          "/es",
-          "/fr",
-          "/de",
-          "/ru",
+          "/zh/",
+          "/ja/",
+          "/ko/",
+          "/es/",
+          "/fr/",
+          "/de/",
+          "/ru/",
+          "/en/",
         ];
-        return validPaths.includes(page);
+        return validPaths.includes(url.pathname);
       },
       changefreq: "monthly",
       priority: 1.0,
