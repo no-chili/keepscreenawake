@@ -9,7 +9,7 @@ import {
 interface ColorTheme {
   primary: string; // 主题色（黄色）
   background: string; // 背景色
-  secondary: string; // 次要文字色
+  secondary: string; // 次要文字
   border: string; // 边框色
   accent: string; // 强调色
 }
@@ -22,7 +22,9 @@ const KeepScreenAwake: React.FC<KeepScreenAwakeProps> = ({ lang }) => {
   const [isActive, setIsActive] = useState(false);
   const [startTime, setStartTime] = useState<number | null>(null);
   const [elapsedTime, setElapsedTime] = useState<string>("00:00");
-  const [currentLanguage, setCurrentLanguage] = useState<Language>(lang || "en");
+  const [currentLanguage, setCurrentLanguage] = useState<Language>(
+    lang || "en"
+  );
 
   const animationFrameRef = useRef<number | undefined>(undefined);
 
@@ -619,6 +621,12 @@ const KeepScreenAwake: React.FC<KeepScreenAwakeProps> = ({ lang }) => {
             </div>
           </div>
         </div>
+      </div>
+
+      <div>
+        <a href="https://fastshort.ai/" target="_blank">
+          fastshort
+        </a>
       </div>
     </>
   );
