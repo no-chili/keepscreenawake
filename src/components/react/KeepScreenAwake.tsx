@@ -630,6 +630,9 @@ const KeepScreenAwake: React.FC<KeepScreenAwakeProps> = ({ lang }) => {
         <a href="https://craftfoodrecipes.com/recipes" target="_blank">
           Craft Food Roblox Recipes
         </a>
+        <a href="https://theforge-calculator.com/" target="_blank">
+          The Forge Calculator
+        </a>
       </div>
     </>
   );
