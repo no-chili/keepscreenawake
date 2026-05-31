@@ -648,6 +648,13 @@ const KeepScreenAwake: React.FC<KeepScreenAwakeProps> = ({ lang }) => {
         >
           Text to Song
         </a>
+        <a
+          href="https://whereisthisplace.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Where Is This Place
+        </a>
       </div>
     </>
   );
