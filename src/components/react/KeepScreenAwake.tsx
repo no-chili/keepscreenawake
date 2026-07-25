@@ -656,6 +656,16 @@ const KeepScreenAwake: React.FC<KeepScreenAwakeProps> = ({ lang }) => {
           Where Is This Place
         </a>
       </div>
+
+      <div>
+        <a
+          href="https://1000littlethings.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          1000 Little Things
+        </a>
+      </div>
     </>
   );
 };
