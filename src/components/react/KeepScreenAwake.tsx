@@ -666,6 +666,12 @@ const KeepScreenAwake: React.FC<KeepScreenAwakeProps> = ({ lang }) => {
           1000 Little Things
         </a>
       </div>
+
+      <div>
+        <a href="https://neegy.app/" target="_blank">
+          Neegy
+        </a>
+      </div>
     </>
   );
 };
